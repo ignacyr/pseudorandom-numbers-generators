@@ -1,10 +1,11 @@
-from generators import rand_sawtooth_linear, rand_linear, rand_x_plus_1
+from generators import rand_sawtooth_linear, rand_linear, \
+    rand_2x_sawtooth, rand_2x, rand_pyramid_sawtooth, rand_pyramid
 import matplotlib.pyplot as plt
 import numpy as np
 
 quantity = 100000
 
-random_numbers_sawtooth = rand_sawtooth_linear(0.79911312515, quantity)
+random_numbers_sawtooth = rand_pyramid(0.79911312515, quantity)
 random_numbers_2 = rand_linear(np.array([0.7155645, 0.54564, 0.54546, 0.134545]), quantity)
 random_numbers = np.random.rand(quantity)
 
