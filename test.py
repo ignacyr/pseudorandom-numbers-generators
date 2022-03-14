@@ -9,7 +9,7 @@ random_numbers_2 = rand_linear(np.array([0.7155645, 0.54564, 0.54546, 0.134545])
 random_numbers = np.random.rand(quantity)
 
 plt.figure(1)
-plt.hist(random_numbers_sawtooth, bins=500)
+plt.hist(random_numbers_sawtooth, bins=100)
 
 # plt.figure(2)
 # plt.hist(random_numbers_2, bins=100)

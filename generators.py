@@ -19,7 +19,7 @@ def rand_linear(x0, n):      # linear congruential generator
     x[0:k] = x0
     for i in range(n):
         x[i + k] = np.mod(np.sum(a * x[i:(i + k)]) + c, m)
-    return x[1:]
+    return x[k:]
 
 
 def rand_2x(x0, n):   # pseudorandom number generator - probability density: 2x
@@ -43,7 +43,9 @@ def rand_x_plus_1(x0, n):
     x[0:k] = x0
     for i in range(n):
         x[i + k] = np.mod(np.sum(a * x[i:(i + k)]) + c, m)
+    x = x[k:]
     x = x - 1
     x[x < 0] = np.sqrt(2*x[x < 0] + 1) - 1
-    x[x >= 0] = np.sqrt(1 + 2*x[x >= 0])
-    return x[1:]
+    x[x >= 0] = -np.sqrt(1 - 2*x[x >= 0]) + 1
+    print(x.size)
+    return x
