@@ -11,7 +11,7 @@ def rand_sawtooth_linear(x0, n):  # linear pseudorandom number generator with sa
 
 
 def rand_linear(x0, n):      # linear congruential generator
-    m = 2.0
+    m = 1.0
     c = 5
     a = np.array([8, 2, 53, 12])
     k = a.size
@@ -34,8 +34,8 @@ def rand_2x(x0, n):   # pseudorandom number generator - probability density: 2x
     return np.sqrt(x[1:])
 
 
-def rand_x_plus_1(x0, n):
-    m = 2.0
+def rand_x_plus_1(x0, n):  # pseudorandom number generator - probability density: x + 1 for (-1,0); -x + 1 for [0,1)
+    m = 1.0
     c = 5
     a = np.array([8, 2, 53, 12])
     k = a.size
@@ -44,8 +44,8 @@ def rand_x_plus_1(x0, n):
     for i in range(n):
         x[i + k] = np.mod(np.sum(a * x[i:(i + k)]) + c, m)
     x = x[k:]
-    x = x - 1
+    x = x - 0.5
     x[x < 0] = np.sqrt(2*x[x < 0] + 1) - 1
     x[x >= 0] = -np.sqrt(1 - 2*x[x >= 0]) + 1
-    print(x.size)
+    print(x)
     return x
