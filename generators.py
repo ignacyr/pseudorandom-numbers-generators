@@ -3,7 +3,7 @@ import numpy as np
 
 # linear
 def rand_sawtooth_linear(x0, n):  # linear PRNG with sawtooth signal
-    z = 7
+    z = 225
     x = np.zeros(n+1)
     x[0] = x0
     for i in range(n):
